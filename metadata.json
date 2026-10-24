@@ -1,0 +1,6 @@
+{
+  "name": "CallShield AI",
+  "description": "Real-Time Speech Emotion Analysis and Cybercrime Fraud Detection Platform for acoustic forensics, scam indicator detection, and investigation case management.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
