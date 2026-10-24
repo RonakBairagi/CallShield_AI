@@ -1,288 +1,289 @@
-# Kolkata JolSafety (কলকাতা জল-সুরক্ষা)
+# CallShield AI
 
-**Real-Time Urban Flood Intelligence, Waterlogging Telemetry, Electrocution Hazard Prevention & Climate-Resilient Routing Platform for Greater Kolkata**
+**Real-Time Speech Emotion Analysis, Acoustic Forensics & Explainable Cybercrime Fraud Detection Platform**
 
-[![Architecture: Event-Driven GIS & Hydrological Telemetry](https://img.shields.io/badge/Architecture-Hydrological%20GIS%20%2B%20Edge%20IoT-0284c7?style=flat-square)](#system-architecture--core-pipelines)
-[![Target Authority: KMC / KMDA / Disaster Management](https://img.shields.io/badge/Domain-Civic%20Resilience%20%26%20Urban%20Hydrology-0f766e?style=flat-square)](#problem-statement--kolkata-hydrological-context)
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-334155?style=flat-square)](#license)
+[![Architecture: Hybrid Acoustic DSP + Explainable Fraud Engine](https://img.shields.io/badge/Architecture-Acoustic%20DSP%20%2B%20Hybrid%20Fraud%20NLP-dc2626?style=flat-square)](#3-end-to-end-system-architecture--core-pipelines)
+[![Security: RFC 7519 HS256 JWT + Scrypt KDF](https://img.shields.io/badge/Auth-HS256%20JWT%20%2B%20Scrypt%20KDF-10b981?style=flat-square)](#pipeline-5-cryptographic-authentication--chain-of-custody-pipeline)
+[![Verification: 10/10 Automated Unit & Forensic Checks](https://img.shields.io/badge/Tests-10%2F10%20Passing-2563eb?style=flat-square)](#7-automated-verification--forensic-qa-benchmarks)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-334155?style=flat-square)](#9-license)
 
 ---
 
 ## 1. Executive Summary
 
-**Kolkata JolSafety** is an end-to-end urban hydro-meteorological intelligence and citizen safety platform purpose-built for the unique topographical, tidal, and drainage realities of the **Kolkata Municipal Corporation (KMC)** and **Kolkata Metropolitan Development Authority (KMDA)** regions.
+**CallShield AI** is a full-stack acoustic forensics, real-time speech emotion recognition (SER), and cybercrime investigation platform engineered to address the problem statement:
 
-Unlike generic weather apps that only report macro-level precipitation, **Kolkata JolSafety** fuses **Hooghly River tidal lock schedules**, **micro-catchment elevation profiles**, **KMC pumping station discharge telemetry**, **ultrasonic street-level water-depth sensors**, **computer-vision crowdsourced flood verification**, and **CESC/WBSEDCL live-wire hazard reports** into a unified operational picture. The platform computes real-time **Safe-Passage Routing** for citizens, emergency ambulances, and civic response units while giving KMC Drainage Department engineers predictive inundation lead-time across all **144 KMC wards**.
+> **“Real-Time Speech Emotion Analysis for Cybercrime Investigation.”**
 
----
+Modern telecommunication fraud—such as **"Digital Arrest" extortion** (impersonating CBI, Narcotics Control Bureau, Enforcement Directorate, or Customs officials), **coercive OTP/UPI solicitation**, **remote-access trojan traps** (AnyDesk/TeamViewer), and **synthetic family-emergency scams**—relies on weaponized psychological manipulation. Scammers manufacture artificial urgency, authority intimidation, and isolation to induce acute vocal distress and cognitive overload in victims before extracting funds.
 
-## 2. Problem Statement & Kolkata Hydrological Context
-
-Kolkata's urban flooding is not merely a rainfall problem—it is a **coupled compound-flooding phenomenon**:
-
-1. **Inverted Saucer Topography & Subsidence**: Much of central, north, and east Kolkata slopes *away* from the Hooghly River toward the East Kolkata Wetlands (Bidyadhari basin), creating natural retention bowls in pockets such as **Thanthania Kalibari, College Street, Amherst Street, Behala, Ultadanga, Ballygunge, and Ekbalpore**.
-2. **Hooghly Tidal Lock-In Effect**: During high tide (especially spring tides / *Bhora Kotal*), the lock gates along the Hooghly outfalls must be closed to prevent river backflow. If a cloudburst (>50 mm/hr) coincides with a 4-hour tidal lock window, gravity drainage ceases completely and stormwater backs up across arterial corridors within 25–40 minutes.
-3. **Submerged Electrocution & Open-Manhole Hazards**: Every monsoon, fatalities in Kolkata occur not from drowning, but from **submerged live electrical feeder boxes, street-light poles, and unbarricaded open manholes** hidden beneath opaque waterlogged streets.
-4. **Siltation & Combined Sewer Overflow (CSO)**: Legacy colonial-era brick sewers (Town System & Suburban System) and open outfall canals (*khals*—Tolly's Nullah, Beliaghata Circular Canal, Bagjola, Kestopur, Panchannagram) operate near capacity under high sediment load.
-
-**Kolkata JolSafety** bridges the gap between **macro meteorological warnings** and **street-by-street actionable survival intelligence**.
+**CallShield AI** combines **deterministic digital signal processing (DSP)**, **automatic speech recognition (ASR)**, **time-series vocal emotion estimation**, and an **explainable, anti-bias fraud scoring engine** into a unified forensic console for citizens, financial fraud analysts, and authorized cybercrime investigators.
 
 ---
 
-## 3. System Architecture & Core Pipelines
+## 2. Core Engineering Philosophy & Anti-Bias Guardrails
 
-The platform is engineered around **six deterministic, fault-tolerant data and ML pipelines** designed for low-bandwidth monsoon resilience and sub-second geospatial querying.
+Veteran forensic engineers and judges rightly scrutinize AI systems that make black-box accusations or conflate a speaker's nervousness with guilt. **CallShield AI** enforces three foundational engineering invariants at the code level:
+
+1. **Zero-Hallucination & Ethical Anti-Bias Invariant**:
+   * **Vocal emotion alone NEVER classifies a conversation as fraudulent.** A citizen speaking in panic during a legitimate medical emergency or crying during a personal phone call exhibits high acoustic arousal/fear, yet must receive a **`0 / 100` (Low Risk)** fraud score if no coercive or financial scam indicators are present in the semantic transcript.
+   * Formally, when semantic indicator count $N_{\text{semantic}} = 0$, the vocal stress amplification weight is strictly clamped to $0$.
+2. **Explicit Uncertainty over Fabricated Confidence**:
+   * If an audio stream consists of silence (`RMS < 0.008`), severe microphone clipping (`> 5%` saturated samples), low signal-to-noise ratio (`SNR < 8 dB`), or an empty transcript, the engine halts speculative classification and returns an **`Inconclusive`** verdict with explicit diagnostic telemetry.
+3. **Transparent Audio Capture Boundaries (No Fake Cellular Interception)**:
+   * Standard web browsers cannot intercept remote cellular call audio due to OS sandbox restrictions. CallShield AI explicitly separates capture into **Mode A (Live Browser Microphone Capture via Web Audio API)**, **Mode B (Forensic WAV/PCM File Upload & Batch Analysis)**, and **Mode C (Pre-Synthesized Multi-Segment Forensic Benchmark Scenarios)**.
+
+---
+
+## 3. End-to-End System Architecture & Core Pipelines
+
+CallShield AI is structured around **five decoupled, unit-tested pipelines** that process raw acoustic waveforms into court-ready forensic investigation reports.
 
 ```text
 +---------------------------------------------------------------------------------------------------+
-|                                 1. MULTI-MODAL INGESTION LAYER                                    |
-|  [IMD Doppler Radar / AWS]   [Hooghly Tide Gauge API]   [KMC Sump Pump SCADA]   [Edge IoT Nodes]  |
-|  [Citizen CV Crowdsourcing]  [CESC/WBSEDCL Fault Feed]  [SRTM / LiDAR DEM]      [144-Ward GIS]    |
+|                               1. AUDIO CAPTURE & INGESTION LAYER                                  |
+|  [Mode A: Web Audio API Mic Stream]   [Mode B: Forensic WAV Upload]   [Mode C: Benchmark Corpus]  |
 +-------------------------------------------------+-------------------------------------------------+
                                                   |
                                                   v
 +---------------------------------------------------------------------------------------------------+
-|                         2. STREAM PROCESSING & SPATIAL FUSION PIPELINE                            |
-|     Apache Kafka / Redis Streams  --->  PostGIS / H3 Hexagonal Spatial Indexing (Resolution 10)   |
+|                     2. ACOUSTIC SIGNAL PROCESSING (DSP) & QUALITY PIPELINE                        |
+|  RIFF/WAV Parser -> 16kHz Mono Normalization -> Frame Windowing (25ms/10ms) -> Hann Window        |
+|  Extracts: RMS Energy | Zero-Crossing Rate (ZCR) | Autocorrelation Pitch (F0) | Spectral Centroid |
+|  Quality Gate: Clipping Ratio (%) | Noise Floor & SNR (dB) | VAD Speech Ratio | Uncertainty Flag  |
 +------------------------+-------------------------------------------------+------------------------+
                          |                                                 |
                          v                                                 v
 +------------------------------------------------+ +------------------------------------------------+
-|   3. HYDROLOGICAL NOWCASTING & RISK PIPELINE   | |  4. CV VERIFICATION & HAZARD TRIAGE PIPELINE   |
-| - Tidal Lock + Runoff Balance Solver           | | - Reference-Object Water Depth Estimation      |
-| - 15/30/60-min Ward Inundation Forecast        | | - EXIF / GPS Spoofing & Duplicate Filtering    |
-| - Electrocution & Manhole Risk Scoring         | | - Live-Wire / Fallen Pole Priority Escalation  |
+| 3. SPEECH EMOTION & VOCAL STRESS PIPELINE      | | 4. HYBRID ASR & SEMANTIC FRAUD ENGINE          |
+| - 2.0s Windowed Acoustic-Prosodic SER          | | - Multimodal Gemini ASR + Timestamped Segments |
+| - 6-Class Distribution: Calm, Neutral,         | | - 6-Category Weighted Scam Lexicon & Regex     |
+|   Nervous/Fearful, Angry, Stressed, Urgency    | | - Compound Escalation Bonus (+12 Multi-Vector) |
+| - Vocal Stress Index (0-100) + Confidence      | | - Ethical Anti-Bias Clamp (0 Risk if 0 Rules)  |
 +------------------------+-----------------------+ +-----------------------+------------------------+
                          |                                                 |
                          +------------------------+------------------------+
                                                   |
                                                   v
 +---------------------------------------------------------------------------------------------------+
-|                     5. DYNAMIC SAFE-PASSAGE & EMERGENCY ROUTING PIPELINE                          |
-|  OSRM / pgRouting Graph  +  Time-Dependent Flood Edge Weights  +  Vehicle Clearance Profiles      |
-|  (Pedestrian | Two-Wheeler | Hatchback/Sedan | Critical Ambulance / NDRF High-Clearance)          |
-+-------------------------------------------------+-------------------------------------------------+
-                                                  |
-                                                  v
-+---------------------------------------------------------------------------------------------------+
-|                        6. OMNI-CHANNEL DISPATCH & OFFLINE-FIRST DELIVERY                          |
-|  [PWA Offline Map Cache]  [KMC Control Room Dashboard]  [Bengali/Hindi/English Voice & SMS Alerts]|
+|               5. CRYPTOGRAPHIC AUTHENTICATION, PERSISTENCE & FORENSIC CASE PIPELINE               |
+|  - Scrypt Password KDF (16B Salt, Constant-Time Verify) + RFC 7519 HS256 JWT + Token Revocation   |
+|  - Node 22 Native SQLite (`node:sqlite`) Persistence (`analyses`, `cases`, `users`, `settings`)   |
+|  - Chain-of-Custody Case Notes, Interactive Transcript Correction & JSON/Print Forensic Reports   |
 +---------------------------------------------------------------------------------------------------+
 ```
 
 ---
 
-### Pipeline 1: Multi-Sensor Hydrological & Tidal Ingestion Pipeline
+### Pipeline 1: Acoustic Signal Processing (DSP) & Signal Quality Pipeline (`src/lib/audioProcessor.ts`)
 
-Ingests heterogeneous real-time and static geospatial streams, normalizes timestamps to `Asia/Kolkata (IST)`, and projects coordinates into **EPSG:32645 (UTM Zone 45N)** and **Uber H3 Hexagonal Cells (Resolution 9 & 10 — ~100m street blocks)**:
+Every recorded or uploaded audio buffer is parsed and analyzed deterministically in `src/lib/audioProcessor.ts` before any AI model or scoring rule is invoked:
 
-* **Meteorological Telemetry**: IMD Kolkata (Alipore & Dum Dum) Automatic Weather Stations (AWS) 15-minute rainfall accumulation (mm) and Doppler Weather Radar (DWR) reflectivity nowcasts.
-* **Tidal & Outfall Boundary Conditions**: Kolkata Port Trust (Syama Prasad Mookerjee Port) Garden Reach tide-gauge telemetry, predicted high/low tide curves, and lock-gate status (`OPEN`, `THROTTLED`, `TIDAL_LOCK_CLOSED`).
-* **Drainage Infrastructure State**: Real-time operational status and discharge rates (cusecs) from major KMC pumping stations (**Palmerazar, Ballygunge, Dhapa Lock, Ultadanga, Maniktala, Mominpore, Behala Flying Club, Chowbaga**).
-* **Street-Level Edge IoT Telemetry**: Low-power LoRaWAN / NB-IoT ultrasonic water-level nodes (`JSN-SR04T` + `ESP32`) mounted on street-light poles at 75+ chronic waterlogging hotspots, transmitting median-filtered water depth (`cm` above carriageway crown) every 120 seconds.
-
-```text
-[Ultrasonic / Pressure Node] --> [Kalman Spike Filter] --> [MQTT / LoRa Gateway]
-                                                                    |
-[IMD Radar + Port Tide API]  --> [Schema Normalizer]  --------------+--> [TimescaleDB + PostGIS]
-```
-
----
-
-### Pipeline 2: Computer Vision (CV) Crowdsourced Verification & Anti-Spoofing Pipeline
-
-During peak monsoon events, citizen reports provide critical coverage where physical IoT sensors are absent. To prevent false alarms, panic, or stale recycled photos, every uploaded image/video passes through a strict **4-stage verification pipeline**:
-
-1. **Cryptographic & Spatio-Temporal Metadata Validation**:
-   * Verifies device GPS coordinates, compass bearing, timestamp recency (`< 20 minutes`), and H3 cell alignment with active rainfall radar cells.
-2. **Semantic Segmentation & Reference-Object Depth Estimation**:
-   * Uses a lightweight vision pipeline to segment water surface area and estimate depth by measuring submergence ratios against standardized urban reference objects:
-     * **KMC Black-and-Yellow / White-and-Blue Kerbstones** (`~15–20 cm`)
-     * **Two-Wheeler / Autorickshaw / Car Wheel Hubs** (`~25–35 cm` — engine stall threshold)
-     * **Pedestrian Knee / Waist Landmarks** (`>45 cm` — severe inundation)
-3. **Critical Hazard Detection (Electrocution & Open Manholes)**:
-   * Flags visual or textual indicators of sparking CESC junction boxes, submerged transformer plinths, fallen overhead cables, or dislodged manhole covers for **Priority-0 Zero-Latency Escalation**.
-4. **Bayesian Consensus & Trust Scoring**:
-   * Aggregates multiple citizen reports within the same H3 hexagon and cross-validates against nearest ultrasonic sensor readings and topographical depression indices before updating the public routing graph.
+1. **RIFF/WAV Binary Parsing & Downmixing**:
+   * Validates the `RIFF`/`WAVE` header, extracts `fmt ` chunk metadata (sample rate, channels, bit depth: 16-bit/24-bit/32-bit PCM or 32-bit IEEE Float), downmixes multi-channel audio to mono, and normalizes samples to `Float32Array` in $[-1.0, 1.0]$.
+2. **Short-Time Frame Extraction**:
+   * Slices the waveform into overlapping frames with a `40 ms` window and `20 ms` hop size, applying a **Hann window** $w[n] = 0.5 \left(1 - \cos\left(\frac{2\pi n}{N-1}\right)\right)$ to minimize spectral leakage.
+3. **Time & Frequency Domain Feature Extraction**:
+   * **Root Mean Square (RMS) Energy**:
+     $$\text{RMS} = \sqrt{\frac{1}{N} \sum_{n=0}^{N-1} x[n]^2}$$
+   * **Zero-Crossing Rate (ZCR)**: Measures high-frequency fricative/sibilant density and vocal tension.
+   * **Fundamental Frequency ($F_0$) via Normalized Autocorrelation**: Evaluates lag $\tau \in [f_s / 450\text{ Hz}, f_s / 70\text{ Hz}]$ on active speech frames to compute **Mean Pitch (Hz)** and **Pitch Variability ($\sigma_{F_0}$)**—key biomarkers of vocal tremor and acute psychological arousal.
+   * **Spectral Centroid (Hz)**: Computes the center of mass of the DFT magnitude spectrum across each acoustic segment.
+4. **Signal Quality & Uncertainty Gate**:
+   * Computes **Clipping Ratio** (fraction of samples where $|x[n]| \ge 0.985$), **Estimated SNR (dB)** ($20 \log_{10}(\text{P90}_{\text{RMS}} / \text{P15}_{\text{RMS}})$), and **Voice Activity Detection (VAD) Speech Ratio**.
+   * Automatically triggers `serUncertaintyFlag = true` if duration `< 1.2s`, speech ratio `< 18%`, SNR `< 8 dB`, or clipping `> 5%`.
 
 ---
 
-### Pipeline 3: Compound Flood Nowcasting & Micro-Catchment Risk Scoring Pipeline
+### Pipeline 2: Time-Series Speech Emotion Recognition (SER) & Vocal Stress Pipeline (`src/lib/audioProcessor.ts`)
 
-Computes a deterministic + ML hybrid **Inundation Depth & Risk Index ($R_{cell}$)** for every 100m road segment at **T+0 (Live), T+15 min, T+30 min, and T+60 min**:
+Rather than returning a single static emotion label for an entire call, CallShield AI segments the audio into **2.0-second temporal windows** and computes a continuous probability distribution across six forensic emotion states:
 
-$$\text{Net Accumulation Rate } \frac{dH}{dt} = \underbrace{I(t) \cdot C_{\text{runoff}}}_{\text{Rainfall Inflow}} + \underbrace{Q_{\text{upstream}}(t)}_{\text{Slope Convergence}} - \underbrace{\eta_{\text{tidal}}(t) \cdot Q_{\text{pump/sewer}}}_{\text{Effective Drainage Capacity}}$$
+* **Calm** (`calm`)
+* **Neutral** (`neutral`)
+* **Nervous / Fearful** (`nervous_fearful`)
+* **Angry / Aggressive** (`angry`)
+* **Stressed / Overwhelmed** (`stressed`)
+* **High Urgency / Coercive Pressure** (`urgency`)
 
-Where:
-* $I(t)$: Local rainfall intensity (mm/hr) from IMD AWS + radar extrapolation.
-* $C_{\text{runoff}}$: Impervious surface coefficient derived from built-up land-use density (`0.75 – 0.92` in dense North/Central Kolkata wards).
-* $Q_{\text{upstream}}(t)$: Topographical Wetness Index (TWI) flow accumulation from adjacent higher-elevation cells.
-* $\eta_{\text{tidal}}(t) \in [0, 1]$: Tidal drainage efficiency factor, which drops toward `0.15` when Hooghly tide height exceeds outfall sill elevation (`Tidal Lock Active`).
-* $Q_{\text{pump/sewer}}$: Active pumping station extraction capacity minus historical canal siltation penalty.
+#### Acoustic-Prosodic Mapping & Vocal Stress Index ($S_{\text{vocal}}$)
+For each 2.0-second window, normalized arousal ($A \in [0, 1]$ from RMS energy + spectral centroid), pitch tension ($P \in [0, 1]$ from $F_0$ elevation above baseline), and pitch instability ($V \in [0, 1]$ from $\sigma_{F_0}$ + ZCR) drive a softmax-normalized distribution and a composite **Vocal Stress Score ($0\text{–}100$)**:
 
-#### Composite Street Hazard Classification
+$$S_{\text{vocal}} = \text{clamp}_{[0, 100]}\left(\text{round}\Big(100 \cdot \big(0.38 \cdot P_{\text{stressed}} + 0.32 \cdot P_{\text{nervous\_fearful}} + 0.20 \cdot P_{\text{urgency}} + 0.10 \cdot P_{\text{angry}}\big)\Big)\right)$$
 
-| Severity Tier | Water Depth ($d$) | Compound Hazard Triggers | Operational Action |
+Every segment records its start/end timestamp, dominant emotion, full 6-class probability vector, confidence score, and local acoustic telemetry (`rms`, `pitchHz`, `zcr`, `spectralCentroidHz`) to power the synchronized **Transcript & Emotion Timeline**.
+
+---
+
+### Pipeline 3: Hybrid ASR & Explainable Cybercrime Fraud Scoring Pipeline (`src/lib/fraudEngine.ts`)
+
+The fraud engine combines **multimodal speech transcription** (via `@google/genai` `gemini-2.5-flash` audio transcription on the backend, paired with browser `SpeechRecognition` for zero-latency live captioning and deterministic fallback) with a **6-category weighted cybercrime rule matrix**:
+
+| Category | Threat Vector | Representative Pattern / Lexicon Triggers | Base Weight |
 | :--- | :--- | :--- | :--- |
-| **TIER 0 — CLEAR** | `< 5 cm` | Normal drainage; no tidal lock | All vehicles & pedestrians permitted |
-| **TIER 1 — CAUTION** | `5 – 15 cm` | Kerb-level ponding; slow drainage | Pedestrian ankle-deep; low-floor two-wheelers cautioned |
-| **TIER 2 — SEVERE WATERLOGGING** | `15 – 35 cm` | Exhaust submergence risk; tidal lock active | **Reroute Two-Wheelers & Hatchbacks**; stall warning |
-| **TIER 3 — CRITICAL / NO-GO** | `> 35 cm` | High-depth inundation or unverified manhole | **Closed to standard traffic**; only high-clearance rescue/buses |
-| **TIER 4 — LETHAL HAZARD (BLACK)** | *Any depth* | **Live wire / CESC feeder submergence / open manhole** | **Hard Geofence Block**; automated CESC & KMC emergency dispatch |
+| **`OTP_FINANCIAL`** | Credential & Payment Extraction | `OTP`, `CVV`, `ATM PIN`, `UPI PIN`, `verification account`, `freeze your bank account` | `26 – 32 pts` |
+| **`AUTHORITY_IMPERSONATION`** | Law Enforcement / Regulator Spoofing | `CBI officer`, `Narcotics Control Bureau`, `Enforcement Directorate`, `RBI head office`, `Supreme Court warrant` | `26 – 28 pts` |
+| **`THREAT_COERCION`** | "Digital Arrest" & Legal Intimidation | `digital arrest`, `non-bailable arrest warrant`, `money laundering case`, `Aadhaar linked to illegal parcel` | `26 – 38 pts` |
+| **`URGENCY_PRESSURE`** | Artificial Time Compression | `within 10 minutes`, `do not disconnect the call`, `stay on video call`, `immediate action required` | `18 – 24 pts` |
+| **`ISOLATION_SECRECY`** | Victim Isolation from Support Network | `do not tell anyone`, `strictly confidential`, `under national security act`, `do not consult family` | `24 – 25 pts` |
+| **`REMOTE_ACCESS`** | Device Takeover & Screen Sharing | `AnyDesk`, `TeamViewer`, `QuickSupport`, `RustDesk`, `screen sharing app`, `APK download` | `28 – 36 pts` |
+
+#### Explainable Hybrid Risk Formula ($R_{\text{overall}}$)
+
+1. **Semantic Transcript Risk ($R_{\text{semantic}} \in [0, 100]$)**:
+   Sums the weights of all distinct matched rules plus a **Multi-Vector Compound Scam Bonus (`+12 pts`)** when 3 or more distinct threat categories co-occur in the same call (e.g., *Authority Impersonation + Digital Arrest Threat + Secrecy Clause*).
+2. **Contextual Vocal Stress Contribution ($R_{\text{vocal}} \in [0, 15]$)**:
+   $$\text{If } N_{\text{semantic}} = 0 \implies R_{\text{vocal}} = 0 \quad \text{(Ethical Anti-Bias Invariant)}$$
+   $$\text{If } N_{\text{semantic}} > 0 \implies R_{\text{vocal}} = \min\left(15, \text{round}(S_{\text{vocal}} \times 0.18)\right)$$
+3. **Overall Composite Risk Score**:
+   $$R_{\text{overall}} = \text{clamp}_{[0, 100]}\left(\text{round}\left(R_{\text{semantic}} \times 0.85 + R_{\text{vocal}}\right)\right)$$
+
+Every assessment outputs a complete **Explainable Breakdown** (`transcriptSemanticWeight`, `vocalStressWeight`, `compoundEscalationBonus`, matched excerpts, segment timestamps, and human-readable reasoning bullets) alongside actionable citizen safety directives.
 
 ---
 
-### Pipeline 4: Flood-Aware Dynamic Routing & Emergency Corridor Pipeline
+### Pipeline 4: Real-Time Web Audio Monitoring & Non-Blocking Chunk Pipeline (`src/components/LiveMonitoringView.tsx`)
 
-Standard navigation engines route drivers straight into flooded underpasses and low-lying bowls because traffic speed appears "clear" when vehicles have stopped entering. **Kolkata JolSafety** modifies the road network graph $G = (V, E)$ in real time:
+Designed for low-latency live call screening without flooding the backend or leaking microphone handles:
 
-1. **Dynamic Edge Cost Formulation**:
-   For each road edge $e \in E$ and vehicle/user profile $p \in \{\text{Pedestrian}, \text{TwoWheeler}, \text{Car}, \text{Ambulance}\}$:
-
-   $$W(e, p) = \begin{cases} \infty & \text{if } \text{ElectroHazard}(e) = \text{True} \text{ or } d(e) > d_{\text{max}}(p) \\ T_{\text{base}}(e) \cdot \left(1 + \alpha_p \left(\frac{d(e)}{d_{\text{max}}(p)}\right)^2 + \beta \cdot \text{ManholeRisk}(e)\right) & \text{otherwise} \end{cases}$$
-
-2. **Vehicle Safe-Wading Clearance Thresholds ($d_{\text{max}}$)**:
-   * **Pedestrian**: `15 cm` (strict zero-tolerance around electrified poles or open manholes)
-   * **Two-Wheeler / EV Scooter**: `18 cm` (prevents air-intake ingestion & battery pack shorting)
-   * **Sedan / Hatchback**: `22 cm` (prevents hydrostatic engine lock)
-   * **SUV / Bus / Emergency Ambulance**: `40 cm` (prioritizes elevated flyovers: **Maa Flyover, AJC Bose Road Flyover, Park Street Flyover, Sealdah Flyover, Chingrighata**)
-3. **Medical & Disaster Corridor Guarantee**:
-   * Computes guaranteed dry/passable access corridors to major trauma and medical hubs (**SSKM Hospital, Calcutta Medical College, NRS, RG Kar, Apollo Gleneagles, AMRI**) even during severe city-wide waterlogging.
+* **Hardware Enumeration & Consent Gate**: Enumerates input devices via `navigator.mediaDevices.enumerateDevices()` only after explicit user consent.
+* **60fps Canvas Oscilloscope & RMS/Clipping Meter**: Connects `MediaStreamAudioSourceNode` to an `AnalyserNode` (`fftSize = 1024`) to render real-time time-domain waveforms, instantaneous RMS (`dBFS`), and peak clipping alerts.
+* **Non-Overlapping Rolling Window Dispatcher**: Buffers PCM samples via `ScriptProcessorNode` and dispatches non-overlapping acoustic chunks to `/api/analyze-audio` only when an active request is not already in flight, preventing request queue buildup.
+* **Deterministic Teardown**: Releases all `MediaStreamTrack` hardware locks and closes `AudioContext` instances immediately when monitoring stops or the view unmounts.
 
 ---
 
-### Pipeline 5: Electrocution & Civic Incident Response Dispatch Pipeline
+### Pipeline 5: Cryptographic Authentication & Chain-of-Custody Pipeline (`src/lib/authCrypto.ts` & `server.ts`)
 
-A dedicated life-safety pipeline addressing Kolkata's #1 monsoon fatality cause:
+Because cybercrime investigation cases contain sensitive complainant identifiers and evidentiary notes, CallShield AI implements a zero-dependency cryptographic authentication layer using Node's native `node:crypto` and `node:sqlite`:
 
-```text
-[Citizen / Guard Reports Sparking Pole or Submerged Feeder Box]
-                            |
-                            v
-     [Geo-Fenced 150m Lethal Hazard Exclusion Zone]
-                            |
-       +--------------------+--------------------+
-       |                                         |
-       v                                         v
-[Utility Isolation Webhook]             [Hyper-Local Citizen Broadcast]
-- CESC / WBSEDCL Feeder ID Lookup       - Audio Alert in Bengali / Hindi / English
-- Automated LT/HT Isolation Ticket      - Reroutes all active pedestrians within 250m
-- KMC Streetlight Dept Notification     - Tracks "Reported -> Isolated -> Cleared" SLA
-```
+1. **Password Hashing (`scrypt` + Constant-Time Verification)**:
+   * Passwords are salted with 16 cryptographically random bytes (`crypto.randomBytes(16)`) and hashed into a 64-byte key via `crypto.scryptSync`.
+   * Verification uses `crypto.timingSafeEqual` to eliminate timing side-channel attacks.
+2. **RFC 7519 HS256 JWT Issuance & Revocation**:
+   * `signJwt` and `verifyJwt` implement standard Base64URL header/payload encoding and HMAC-SHA256 signature verification with expiration (`exp`) enforcement.
+   * Signing out (`POST /api/auth/logout`) inserts the token into the SQLite `revoked_tokens` table, immediately invalidating the token prior to its natural expiry.
+3. **Role-Protected Forensic Endpoints (`requireAuth` Middleware)**:
+   * Unauthenticated requests to `/api/cases`, `/api/cases/:caseId`, `/api/analyses/:id/transcript`, and `/api/settings/purge` are rejected with `HTTP 401 Unauthorized`.
+   * All case creations and chain-of-custody investigation notes automatically record the authenticated investigator's identity and badge number.
 
 ---
 
-### Pipeline 6: Offline-First Edge Caching & Vernacular Alert Delivery Pipeline
+## 4. Ten Integrated Functional Modules
 
-During severe Nor'westers (*Kalboishakhi*), cyclones, or heavy monsoon cells, cellular data packet loss spikes across waterlogged wards:
-
-* **Progressive Web App (PWA) & IndexedDB Spatial Cache**: Pre-caches Kolkata ward boundaries, chronic waterlogging polygons, emergency shelter locations, and the last known flood graph so citizens can view safe routes even with intermittent 2G/offline connectivity.
-* **Delta-Compressed Telemetry Sync**: Uses compact GeoJSON / FlatGeobuf payloads (<18 KB per sync) for low-bandwidth updates.
-* **Trilingual Accessibility**: Supports **Bengali (বাংলা)**, **English**, and **Hindi (हिन्दी)** with high-contrast outdoor monsoon visibility and voice-guided hazard readouts for two-wheeler riders and senior citizens.
-
----
-
-## 4. Key Functional Modules
-
-| Module | Primary Users | Core Capabilities |
+| # | Console View | Key Capabilities |
 | :--- | :--- | :--- |
-| **1. Live Ward & Street Flood Map** | Citizens, Commuters | Interactive ward-level & street-segment inundation map, live tide-lock status banner, pumping station telemetry, and electrocution hazard markers. |
-| **2. Safe-Passage Route Planner** | Commuters, Ambulance Drivers | Origin-to-destination routing customized by mode (`Pedestrian`, `Two-Wheeler`, `Car`, `Ambulance`) that actively avoids flooded pockets and submerged live wires. |
-| **3. Crowdsourced Hazard Reporter** | Citizens, Civic Volunteers | 10-second reporting workflow with reference-object depth selector (Ankle / Knee / Wheel-hub / Waist), live-wire toggle, and CV verification badge. |
-| **4. KMC & Disaster Command Center** | KMC Engineers, NDRF, Police | 144-ward risk matrix, Hooghly tide vs. rainfall convergence monitor, portable pump deployment optimizer, and CESC feeder isolation tracker. |
-| **5. Predictive Early Warning Engine** | Ward Coordinators, Schools, Hospitals | 15–60 minute compound flood forecasting combining IMD radar cells with Hooghly high-tide windows. |
+| **00** | **Landing Page** | Executive overview, live system telemetry counters, architectural transparency, and quick-launch forensic workflow entry points. |
+| **01** | **Live Dashboard** | Real-time KPI summary (Total Analyzed, Flagged for Review, High/Medium Risk counts, Emotion Distribution, Fraud Category Breakdown, and JWT-protected Case Queue). |
+| **02** | **Live Audio Monitoring** | Mode A live microphone capture, 60fps red cyberpunk waveform visualizer, live speech recognition, rolling SER meters, and instant save-to-case workflow. |
+| **03** | **Call Risk Analysis** | Interactive hybrid risk simulator, ethical anti-bias proof tester, and customizable High/Medium/Vocal-Stress threshold calibration persisted to SQLite. |
+| **04** | **Audio Recorder & Studio** | Browser-based acoustic capture studio + **1-click forensic WAV synthesizer** (generates real 16kHz PCM `.wav` buffers for *Digital Arrest*, *Bank KYC/AnyDesk*, and *Harmless Emergency* test cases). |
+| **05** | **Upload & Analyze Audio** | Drag-and-drop WAV analyzer + **Pre-Loaded Forensic Benchmark Corpus** with full DSP + SER + Fraud pipeline execution. |
+| **06** | **Transcript & Emotion Timeline** | Interactive segment-by-segment emotion & vocal stress timeline bar chart, synchronized audio scrubber, highlighted scam triggers, and JWT-protected transcript correction with instant risk recalculation. |
+| **07** | **Fraud Investigation Cases** | **JWT-Protected (`HTTP 401` gated)** case management (`CS-2026-XXXX`), priority/status filtering, evidence linking, and timestamped investigator chain-of-custody notes. |
+| **08** | **Detailed Investigation Report** | Court/cyber-cell ready dossier with SHA-256 evidence integrity hash, acoustic telemetry table, explainable risk breakdown, JSON export, and print/PDF formatting. |
+| **09** | **Settings, Privacy & QA Suite** | Granular microphone/cloud ASR consent toggles, data retention controls, database purge/re-seed utilities, and an **in-app 10-check Automated Forensic QA Runner**. |
 
 ---
 
 ## 5. Technology Stack
 
-| Layer | Technology Choices | Engineering Rationale |
+| Layer | Technology | Purpose |
 | :--- | :--- | :--- |
-| **Frontend & GIS Visualization** | React 19, TypeScript, Vite, Tailwind CSS, Leaflet / MapLibre GL | Zero-jank vector tile rendering, responsive mobile-first field UI, and offline PWA caching. |
-| **Backend & API Gateway** | Node.js / Express & Python FastAPI Microservices | High-concurrency telemetry ingestion paired with Python scientific/hydrological compute. |
-| **Geospatial & Time-Series Data** | PostgreSQL + PostGIS, TimescaleDB, SQLite (Local/Edge Prototype) | Native spatial indexing (`GIST`), Uber H3 hexagonal aggregation, and high-write sensor time series. |
-| **Routing & Graph Engine** | Custom Dijkstra / A* Flood-Cost Graph + OSRM Integration | Sub-50ms dynamic edge weight recalculation when new flood or electrocution reports arrive. |
-| **AI / Computer Vision & Analytics** | Gemini Vision / PyTorch Edge Segmentation + Explainable Rule Engine | Reference-object water depth estimation and deterministic, auditable hydrological risk scoring. |
+| **Frontend** | React 19, TypeScript, Vite, Tailwind CSS, Lucide Icons | Responsive dark-cyberpunk forensic console with zero-latency canvas audio visualization. |
+| **Backend Runtime** | Node.js 22 + Express (`server.ts` via `tsx`) | Unified API server handling binary WAV parsing, DSP extraction, JWT auth, and ASR orchestration. |
+| **Database** | Node.js Built-In SQLite (`node:sqlite` `DatabaseSync`) | Zero-external-daemon transactional persistence (`data/callshield.sqlite`) with clean schema parity for PostgreSQL. |
+| **Signal Processing** | Custom TypeScript/Node Float32 DSP Engine (`audioProcessor.ts`) | Deterministic RIFF/WAV decoding, Hann windowing, autocorrelation pitch ($F_0$), ZCR, spectral centroid, and SNR analysis. |
+| **Speech & AI Layer** | `@google/genai` (`gemini-2.5-flash`) + Rule/Regex Fraud Engine | Multimodal audio-to-transcript extraction paired with deterministic, auditable scam rule scoring. |
+| **Security & Auth** | Native `node:crypto` (`scryptSync`, `createHmac`, `timingSafeEqual`) | Dependency-free cryptographic password hashing and RFC 7519 HS256 JWT authentication. |
 
 ---
 
 ## 6. Repository Structure
 
 ```text
-kolkata-jolsafety/
+callshield-ai/
 ├── src/
-│   ├── components/             # Interactive GIS Map, Safe-Route Planner, KMC Command Console, Hazard Reporter
+│   ├── components/
+│   │   ├── AuthModal.tsx                 # JWT Sign-In & Investigator Registration modal
+│   │   ├── LandingView.tsx               # 00. Landing page & system overview
+│   │   ├── DashboardView.tsx             # 01. Live operational dashboard & analytics
+│   │   ├── LiveMonitoringView.tsx        # 02. Web Audio API live mic capture & waveform monitor
+│   │   ├── RiskAnalysisView.tsx          # 03. Explainable risk simulator & threshold calibration
+│   │   ├── AudioRecorderView.tsx         # 04. Acoustic recorder & 16kHz PCM WAV synthesizer
+│   │   ├── UploadAnalyzeView.tsx         # 05. File upload & pre-loaded forensic benchmark samples
+│   │   ├── TranscriptTimelineView.tsx    # 06. Synchronized transcript, SER timeline & editor
+│   │   ├── CaseHistoryView.tsx           # 07. JWT-protected cybercrime case management
+│   │   ├── InvestigationReportView.tsx   # 08. Exportable forensic dossier & SHA-256 verification
+│   │   └── SettingsPrivacyView.tsx       # 09. Privacy consent, DB reset & 10-test QA runner
 │   ├── lib/
-│   │   ├── hydrologyEngine.ts  # Compound flood nowcasting (Rainfall + Tidal Lock + Pump Discharge solver)
-│   │   ├── routingGraph.ts     # Vehicle-specific flood-safe A* routing & electrocution geofencing
-│   │   └── cvVerification.ts   # Crowdsourced depth estimation & anti-spoofing validation logic
-│   ├── types/                  # Strict TypeScript contracts for Wards, Sensors, Alerts & Routing
-│   └── App.tsx                 # Main application shell & offline-resilient state coordinator
-├── server.ts                   # Telemetry API, GIS spatial endpoints, CESC/KMC dispatch webhooks & persistence
-├── package.json                # Dependencies, build scripts, and test runners
-└── README.md                   # System architecture & pipeline documentation
+│   │   ├── audioProcessor.ts             # WAV parser, 16kHz PCM synthesizer, DSP & SER engine
+│   │   ├── fraudEngine.ts                # 6-category scam lexicon, hybrid scoring & anti-bias logic
+│   │   ├── authCrypto.ts                 # Scrypt password KDF & HS256 JWT sign/verify primitives
+│   │   ├── qaSuite.ts                    # In-app 10-scenario automated forensic verification suite
+│   │   └── callshield.test.ts            # Node:test automated unit test suite (10/10 passing)
+│   ├── types/
+│   │   └── callshield.ts                 # Strict TypeScript interfaces for DSP, SER, Cases & Auth
+│   └── App.tsx                           # Application router, JWT session manager & layout shell
+├── server.ts                             # Express + SQLite backend, JWT middleware & Gemini ASR route
+├── package.json                          # Project scripts and dependencies
+└── README.md                             # System architecture & pipeline documentation
 ```
 
 ---
 
-## 7. Local Development & Deployment Guide
+## 7. Automated Verification & Forensic QA Benchmarks
+
+CallShield AI ships with both a **CLI Unit Test Suite** (`node:test`) and an **In-App Automated QA Suite** (accessible in `09. Settings & Privacy`) that validate 10 critical engineering and ethical invariants:
+
+```bash
+npx tsx --test src/lib/callshield.test.ts
+```
+
+1. **WAV Synthesis & RIFF Header Round-Trip**: Verifies 16kHz 16-bit mono PCM generation and binary header decoding.
+2. **Malformed Audio Buffer Resilience**: Confirms truncated or corrupted byte streams fail safely without crashing the server.
+3. **Silence Detection & Uncertainty Gate**: Confirms near-zero amplitude audio (`RMS < 0.008`) sets `isSilence = true` and `serUncertaintyFlag = true`.
+4. **Clipped & Noisy Signal Detection**: Verifies heavily saturated waveforms (`>5%` clipping) trigger explicit quality warnings.
+5. **Multi-Vector Cybercrime Detection**: Confirms high-risk classification (`Score >= 65`) on combined *Digital Arrest + CBI Impersonation + OTP/Transfer* transcripts.
+6. **Ethical Anti-Bias Invariant**: Proves that maximum vocal fear/panic (`95/100` vocal stress) during a benign medical emergency yields **`0 / 100` Fraud Risk**.
+7. **Empty Transcript Safety**: Confirms missing transcripts return `Inconclusive` rather than a false `Low Risk` clearance.
+8. **10-Scenario End-to-End QA Suite**: Runs all 10 forensic regression checks with a `100%` pass rate.
+9. **Cryptographic `scrypt` Password KDF**: Verifies salted password hashing and constant-time rejection of wrong passwords.
+10. **HS256 JWT Integrity & Expiry Enforcement**: Verifies valid token decoding and deterministic rejection of tampered signatures, wrong secrets, or expired tokens.
+
+---
+
+## 8. Local Setup & Quickstart Guide
 
 ### Prerequisites
-* **Node.js** `>= 20.x` (with built-in SQLite / TypeScript runtime support)
+* **Node.js** `>= 22.x` (uses built-in `node:sqlite` and `node:crypto`)
 * **npm** `>= 10.x`
 
-### 1. Clone & Install Dependencies
+### 1. Install Dependencies
 ```bash
-git clone https://github.com/your-org/kolkata-jolsafety.git
-cd kolkata-jolsafety
 npm install
 ```
 
 ### 2. Configure Environment Variables
-Copy `.env.example` to `.env` and configure optional external API keys:
 ```bash
 cp .env.example .env
 ```
+*(Optional)* Set `GEMINI_API_KEY` in `.env` to enable live cloud multimodal ASR transcription on uploaded/recorded audio (`server.ts` automatically falls back to deterministic acoustic/transcript analysis if omitted).
 
-```env
-# Optional: For AI-assisted visual water-depth & hazard verification
-GEMINI_API_KEY="your_api_key_here"
-APP_URL="http://localhost:3000"
-```
-
-### 3. Run the Application Locally
+### 3. Start the Full-Stack Development Server
 ```bash
 npm run dev
 ```
-The application and backend telemetry API will start on `http://localhost:3000`.
+Open `http://localhost:3000` in your browser.
 
-### 4. Run Automated Verification & Pipeline Unit Tests
-```bash
-npm test
-npm run build
-```
-
----
-
-## 8. Validation Metrics & Engineering Benchmarks
-
-To ensure production readiness for civic deployment rather than a static mockup, **Kolkata JolSafety** is evaluated against four operational benchmarks:
-
-1. **Compound Flood Nowcast Accuracy**: Evaluates predicted street inundation depth against historical KMC monsoon logs (e.g., September 2021 & Cyclone Remal 2024 cloudburst + high-tide events) across 25 benchmark wards.
-2. **Zero-Tolerance Electrocution Avoidance**: Guarantees `100%` route exclusion within a `150m` buffer of any verified active electrical hazard (`W(e, p) = ∞`).
-3. **Sub-Second Dynamic Rerouting**: Recalculates safe routes across Kolkata's arterial graph in `< 45 ms` upon receiving a new sensor spike or verified citizen report.
-4. **Low-Bandwidth Resilience**: Full initial map & telemetry state loads in `< 1.5s` on throttled 3G connections, with offline fallback for active navigation corridors.
+### 4. Pre-Seeded Investigator Credentials (for JWT-Protected Case Management)
+To unlock **07. Case History** and protected forensic mutations, click **Investigator Sign In** in the top bar (or use the **Autofill Insp. Deshmukh** button inside the modal):
+* **Email**: `deshmukh@cybercell.gov.in`
+* **Password**: `CyberShield#2026`
+* **Role**: `Lead Investigator` (`IND-CYB-4401`)
 
 ---
 
-## 9. Roadmap for KMC / KMDA Civic Integration
+## 9. License
 
-* **Phase 1 (Monsoon Readiness Pilot)**: Deployment across 15 chronic waterlogging wards in North and Central Kolkata (Wards 6, 37, 38, 40, 48, 69, 70, 85, 115–130) with LoRaWAN ultrasonic pole sensors.
-* **Phase 2 (SCADA & Utility Coupling)**: Direct API integration with KMC Drainage SCADA servers and CESC automated feeder-trip telemetry.
-* **Phase 3 (Regional Expansion)**: Scaling hydrological meshes to Bidhannagar (Salt Lake), New Town (NKDA), Howrah Municipal Corporation (HMC), and Barrackpore/Barasat peri-urban basins.
-
----
-
-## 10. License
-
-Distributed under the **Apache License 2.0**. Built for civic resilience, public safety, and urban flood mitigation in Kolkata.
+Licensed under the **Apache License 2.0**. Engineered for real-time speech emotion analysis, citizen scam protection, and cybercrime investigation.
